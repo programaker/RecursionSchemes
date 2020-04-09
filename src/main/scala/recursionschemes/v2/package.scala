@@ -36,11 +36,13 @@ package object v2 {
   def evalToStringAlg: Algebra[ExprF, String] = evalToString
 
   /*
-   * Now comes the recursion part, with the help of our v2.Fix[F[_]] type!
+   * Having a Functor F, Fix[F] and the Algebra[F, A], we can implement the recursion part
+   * in a very generic and reusable way!
+   *
    * To accomplish that we need:
    *
    * 1) Smart constructors to put ExprF in the context of Fix.
-   * They will help to build expressions of type Fix[ExprF] easily
+   * They help to build expressions of type Fix[ExprF] easily
    */
 
   type FixExpr = Fix[ExprF]
@@ -50,12 +52,12 @@ package object v2 {
   def plus(l: FixExpr, r: FixExpr): FixExpr = Fix(PlusF(l, r))
 
   /*
-   * 2) Catamorfism
+   * 2) Catamorphism
    *
-   * A Catamorfism is similar to a "fold" for a Fix recursive structure.
-   * Given a functor F, a Fix[F[_]] and an Algebra[F[_], A], it will produce an A.
+   * The intuition of a Catamorphism is something like a "fold" for a Fix recursive structure.
+   * Given a Functor F, a Fix[F] and an Algebra[F, A], it will produce an A.
    *
-   * More precisely, a Catamorfism "cata" is defined as the function (via composition, as in the post):
+   * More precisely, a Catamorphism "cata" is defined as (via composition, like in the post):
    * `cata = algebra ∘ F(cata) ∘ Fix.out` //note the recursion in F(cata)!
    *
    * Or, more closely to actual Scala code:
