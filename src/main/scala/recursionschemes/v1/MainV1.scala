@@ -4,11 +4,10 @@ object MainV1 {
   import Expr._
 
   def main(args: Array[String]): Unit = {
-    // x² + 3x + 4 (where x² = x * x)
-    val expr =
-      Plus(Times(Var("x"), Var("x")), Plus(Times(Const(3.0), Var("x")), Const(4.0)))
+    // x² + 3x + 4 (x² = x * x)
+    val expr = Plus(Times(Variable("x"), Variable("x")), Plus(Times(Constant(3), Variable("x")), Constant(4)))
 
-    println(evalToDouble(expr, Map("x" -> 2.0)))
+    println(evalToInt(expr, Map("x" -> 2)))
     println(evalToString(expr))
   }
 }
