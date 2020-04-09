@@ -7,7 +7,7 @@ package object v1 {
    * These are 2 different evaluators for the expression Expr.
    *
    * The problem is that the recursive logic is mixed with the evaluation logic,
-   * making the functions repetitive
+   * making the functions repetitive (any other eval function would have the same "shape")
    */
 
   def evalToDouble(expr: Expr, vars: Map[String, Double]): Double = expr match {
