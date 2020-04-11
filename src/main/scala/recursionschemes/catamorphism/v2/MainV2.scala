@@ -1,4 +1,4 @@
-package recursionschemes.v2
+package recursionschemes.catamorphism.v2
 
 object MainV2 {
   def main(args: Array[String]): Unit = {

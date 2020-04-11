@@ -1,4 +1,4 @@
-package recursionschemes.v1
+package recursionschemes.catamorphism.v1
 
 object MainV1 {
   import Expr._

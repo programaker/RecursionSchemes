@@ -1,4 +1,4 @@
-package recursionschemes.v1
+package recursionschemes.catamorphism.v1
 
 /*
  * Represents an Expression that allows:
