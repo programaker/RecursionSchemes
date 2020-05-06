@@ -1,4 +1,4 @@
-package recursionschemes
+package recursionschemes.catamorphism
 
 package object v2 {
   import ExprF._
